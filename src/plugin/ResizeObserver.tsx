@@ -1,6 +1,7 @@
 import OBR from "@owlbear-rodeo/sdk";
 import { useEffect } from "react";
 import throttle from "lodash.throttle";
+import { TRAY_SIZE_MODIFIER } from "../tray/InteractiveTray";
 
 const THROTTLE_TIME = 100;
 const SIDEBAR_WIDTH = 60;
@@ -10,8 +11,9 @@ const SIDEBAR_WIDTH = 60;
  */
 export function ResizeObserver() {
   useEffect(() => {
+    const trayHeight = window.innerHeight * TRAY_SIZE_MODIFIER
     const handleResize = throttle(() => {
-      OBR.action.setWidth(window.innerHeight / 2 + SIDEBAR_WIDTH);
+      OBR.action.setWidth(trayHeight / 2 + SIDEBAR_WIDTH);
     }, THROTTLE_TIME);
 
     handleResize();

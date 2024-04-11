@@ -18,16 +18,19 @@ import { TraySuspense } from "./TraySuspense";
 import { PreviewDiceRoll } from "../dice/PreviewDiceRoll";
 import { FairnessTester } from "../tests/FairnessTester";
 
+export const TRAY_SIZE_MODIFIER = 0.9
+
 /** Dice tray that controls the dice roll store */
 export function InteractiveTray() {
   const allowOrbit = useDebugStore((state) => state.allowOrbit);
+  const trayHeight = `${100 * TRAY_SIZE_MODIFIER}vh`
 
   return (
     <Box
       component="div"
       borderRadius={1}
-      height="100vh"
-      width="calc(100vh / 2)"
+      height={trayHeight}
+      width={`calc(${trayHeight} / 2)`}
       overflow="hidden"
       position="relative"
       id="interactive-tray"

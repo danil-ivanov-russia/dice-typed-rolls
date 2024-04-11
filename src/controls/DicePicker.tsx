@@ -42,7 +42,7 @@ export function DicePicker() {
             overlap="circular"
             key={id}
           >
-            <IconButton
+            <IconButton 
               onClick={() => {
                 handleDiceCountIncrease(id);
                 clearRollIfNeeded();
